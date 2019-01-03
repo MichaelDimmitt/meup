@@ -3,9 +3,19 @@ import { connect } from 'react-redux'
 import Login from './Login'
 import Meetups from './Meetups'
 import MeetupDetails from './MeetupDetails'
-import { filter, takeLast } from 'ramda'
-import { parseQs } from '../../lib/queryString'
-import { fetchMeetups, toHome, toMeetupDetails } from '../actions'
+
+import { toHome, toMeetupDetails } from '../actions'
+
+function mapStateToProps(state) {
+  console.info(state)
+  return {
+    meetups: state.meetups,
+    meetup: state.meetup,
+    route: state.route,
+    session: state.session,
+    isFetching: state.isFetching
+  }
+}
 
 class App extends React.Component {
 
@@ -51,15 +61,6 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  console.info(state)
-  return {
-    meetups: state.meetups,
-    meetup: state.meetup,
-    route: state.route,
-    session: state.session,
-    isFetching: state.isFetching
-  }
-}
+
 
 export default connect(mapStateToProps)(App)
