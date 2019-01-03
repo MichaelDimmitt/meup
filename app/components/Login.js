@@ -1,6 +1,5 @@
 import React from 'react'
 import { toQs, parseQs } from '../../lib/queryString'
-import RaisedButton from 'material-ui/RaisedButton'
 
 export default class Login extends React.Component {
 
@@ -21,7 +20,9 @@ export default class Login extends React.Component {
     }
 
     return <div style={style}>
-      <RaisedButton label="Login with Meetup" primary={true} href={url} />
+      <a href={url} >
+        Login with Meetup
+      </a>
     </div>
   }
 
